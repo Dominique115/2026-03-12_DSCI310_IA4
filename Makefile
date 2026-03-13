@@ -10,9 +10,9 @@ all: results/horse_pop_plot_largest_sd.png \
 	docs/index.html
 
 # render quarto report in html for github pages
-docs/index.html: reports/qmd_example.qmd
+docs/index.html: reports/qmd_example.qmd results/horse_pop_plot_largest_sd.png results/horse_pops_plot.png results/horses_spread.csv
 	mkdir -p docs
-	quarto render reports/qmd_example.qmd --to html --output index.html --output-dir docs
+	cd reports && quarto render qmd_example.qmd --to html --output index.html --output-dir ../docs
 
 # generate figures and objects for report
 results/horse_pop_plot_largest_sd.png results/horse_pops_plot.png results/horses_spread.csv: source/generate_figures.py
@@ -30,6 +30,7 @@ reports/qmd_example.pdf: results reports/qmd_example.qmd
 clean:
 	rm -rf results
 	rm -rf docs
+	rm -f index.html
 	rm -rf reports/qmd_example.html \
 		reports/qmd_example.pdf \
 		reports/qmd_example_files
