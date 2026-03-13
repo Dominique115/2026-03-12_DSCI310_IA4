@@ -5,6 +5,7 @@ execute:
   echo: false
 format:
   html:
+    self-contained: true
     toc: true
     toc-location: right
 editor: source

@@ -30,7 +30,6 @@ reports/qmd_example.pdf: results reports/qmd_example.qmd
 clean:
 	rm -rf results
 	rm -rf docs
-	rm -f index.html
 	rm -rf reports/qmd_example.html \
 		reports/qmd_example.pdf \
 		reports/qmd_example_files
